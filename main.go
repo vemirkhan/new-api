@@ -45,7 +45,8 @@ func main() {
 	if os.Getenv("REDIS_CONN_STRING") != "" {
 		err = common.InitRedisClient()
 		if err != nil {
-			common.FatalLog("Failed to initialize Redis: " + err.Error())
+			// Non-fatal: log the error and continue without Redis
+			common.SysLog("Warning: Failed to initialize Redis, continuing without it: " + err.Error())
 		}
 	}
 
