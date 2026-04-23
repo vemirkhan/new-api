@@ -63,8 +63,12 @@ func main() {
 	router.SetRouter(server)
 
 	// Determine port — default changed to 8080 to avoid conflict with other
-	// local services I run on 3000 (e.g. Node dev servers)
+	// local services I run on 3000 (e.g. Node dev servers).
+	// Fallback chain: PORT env var -> FALLBACK_PORT env var -> 8080
 	port := os.Getenv("PORT")
+	if port == "" {
+		port = os.Getenv("FALLBACK_PORT")
+	}
 	if port == "" {
 		port = "8080"
 	}
