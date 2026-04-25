@@ -74,7 +74,11 @@ func main() {
 	}
 
 	common.SysLog(fmt.Sprintf("Server starting on port %s", port))
-	fmt.Printf("[new-api] Listening on http://localhost:%s\n", port)
+	// Print a clearly visible startup banner so it's easy to spot in terminal output
+	fmt.Printf("\n========================================\n")
+	fmt.Printf("  [new-api] http://localhost:%s\n", port)
+	fmt.Printf("  GIN_MODE : %s\n", gin.Mode())
+	fmt.Printf("========================================\n\n")
 
 	// Start the server
 	if err := server.Run(":" + port); err != nil {
