@@ -85,6 +85,8 @@ func main() {
 	} else {
 		fmt.Printf("  Config   : environment variables\n")
 	}
+	// Show a reminder about the upstream project for my own reference
+	fmt.Printf("  Upstream : https://github.com/QuantumNous/new-api\n")
 	fmt.Printf("========================================\n\n")
 
 	// Start the server
