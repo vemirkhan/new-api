@@ -78,6 +78,7 @@ func main() {
 	fmt.Printf("\n========================================\n")
 	fmt.Printf("  [new-api] http://localhost:%s\n", port)
 	fmt.Printf("  GIN_MODE : %s\n", gin.Mode())
+	fmt.Printf("  PID      : %d\n", os.Getpid())
 	fmt.Printf("========================================\n\n")
 
 	// Start the server
