@@ -79,6 +79,12 @@ func main() {
 	fmt.Printf("  [new-api] http://localhost:%s\n", port)
 	fmt.Printf("  GIN_MODE : %s\n", gin.Mode())
 	fmt.Printf("  PID      : %d\n", os.Getpid())
+	// Show which .env file was loaded (or note that env vars are used directly)
+	if _, statErr := os.Stat(".env"); statErr == nil {
+		fmt.Printf("  Config   : .env\n")
+	} else {
+		fmt.Printf("  Config   : environment variables\n")
+	}
 	fmt.Printf("========================================\n\n")
 
 	// Start the server
